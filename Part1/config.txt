@@ -1,0 +1,12 @@
+{
+    "serverIp": "100",
+    "sourcePort": 1234,
+    "destPortUdp": 9999,
+    "destPortTcpHead": "x",
+    "destPortTcpTail": "y",
+    "TcpPortNum": 1234,
+    "UdpPayloadSize": 100,
+    "InterTime": 15,
+    "UdpPackCount": 6000,
+    "Ttl": 255
+}
