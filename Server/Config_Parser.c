@@ -3,6 +3,7 @@
 //
 # include <stdio.h>
 # include "/Users/lframba/CLionProjects/CS336/Final-Project/JSON/cJSON.c"
+# include "arpa/inet.h"
 
 struct config_settings{
     char *serverIp;
@@ -89,7 +90,7 @@ struct config_settings* parse_config(char *path) {
     }
 
     //Open config file to read
-    FILE *config = fopen(path, "rb");
+    FILE *config = fopen(path, "r");
     if(!config){
         puts("Error: Unable to open config file");
         exit(0);
@@ -98,6 +99,7 @@ struct config_settings* parse_config(char *path) {
     //Convert file to string
     char *file_string = file_to_string(config);
     printf("Successfully loaded config file at: %s\n", path);
+    fclose(config);
 
     //Test print
     printf("%s\n", file_string);
@@ -107,12 +109,6 @@ struct config_settings* parse_config(char *path) {
         puts("Error: Failed to parse string to json");
         exit(0);
     }
-
-    printf("%s\n", cJSON_Print(json));
-    cJSON *sourcePort = cJSON_GetObjectItemCaseSensitive(json, "serverIp");
-    printf("%s\n", cJSON_GetObjectItemCaseSensitive(json, "serverIp")->valuestring);
-
-    printf("Array Size = %i\n", cJSON_GetArraySize(json));
 
     return json_to_struct(json);
 }
