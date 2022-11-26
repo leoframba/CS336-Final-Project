@@ -1,0 +1,12 @@
+{
+    "serverIp": "192.168.50.55",
+    "sourcePort": 9876,
+    "destPortUdp": 8765,
+    "destPortTcpHead": "x",
+    "destPortTcpTail": "y",
+    "TcpPortNum": 8080,
+    "UdpPayloadSize": 1000,
+    "InterTime": 15,
+    "UdpPackCount": 6000,
+    "Ttl": 255
+}
